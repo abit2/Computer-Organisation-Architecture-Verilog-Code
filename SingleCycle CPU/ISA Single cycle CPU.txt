@@ -1,0 +1,50 @@
+		OPCODE +OPCODE type		Operand 1	Addressing Mode		Base Reg	Index register	disp(16 Bit for operand 2)
+
+**LOAD**
+li		"""00000"""				rdst		XX					XXX				XXX				Imm
+lr 		"""00000"""				rdst		"""01"""			rb				XXX				XXX
+lx 		"""00000"""				rdst		"""10"""			rx				XXX				imm
+
+**STORE**						
+stx		"""00001"""				rdst		"""00"""			rb				ri				imm
+stn		"""00001"""				rdst		"""01"""			rb				rx				imm
+
+**ALU**							
+addi	"""01000"""				rdst		"""00"""			XXX				XXX				Imm
+addr	"""01000"""				rdst		"""01"""			rb				XXX				XXX
+subi	"""01001"				rdst		"""00"""			XXX				XXX				Imm
+subr	"""01001"				rdst		"""01"""			rb				XXX				XXX
+mnsi	"""01010"				rdst		"""00"				XXX				XXX				Imm
+mnsr	"""01010"				rdst		"""01"				rb				XXX				XXX
+andi	"""01011"""				rdst		"""00"""			XXX				XXX				Imm
+andr	"""01011"""				rdst		"""01"""			rb				XXX				XXX
+ori		"""01100"""				rdst		"""00"""			XXX				XXX				Imm
+orr		"""01100"""				rdst		"""01"""			rb				XXX				XXX
+cmp		"""01110"				rdst		XX					XXX				XXX				XXX
+
+**JUMP**						
+jz		"""10000"				XXX			XX					XXX				XXX				address
+jnz		"""10001"				XXX			XX					XXX				XXX				address						
+jc		"""10010"				XXX			XX					XXX				XXX				address
+jnc		"""10011"				XXX			XX					XXX				XXX				address						
+js		"""10100"				XXX			XX					XXX				XXX				address
+jns		"""10101"				XXX			XX					XXX				XXX				address						
+jv		"""10110"				XXX			XX					XXX				XXX				address
+jnv		"""10111"				XXX			XX					XXX				XXX				address
+
+**SUBROUTINE**							
+j		"""11100"				XXX			XX					XXX				XXX				address
+jal		"""11110"				rdst		XX					XXX				XXX				address
+jr		"""11010"				rdst		XX					XXX				XXX				address
+andi       
+     
+
+
+
+
+We have dropped indirect addressing and memory in our opcodes, as we have a single cycle CPU. and we cannot do that in single cycle. We are only dealing 
+with direct addresses of the register due to this constraint. Also due to one ALu.The code length is 32 bit as it i a single cycle and we cannot keep offset elsewhere. So for this we have taken a 32 bit implementation. 
+
+
+Performance of single cycle is faster.
+Slightly slower to moderately faster than single cycle, the latter when the instructions steps are well balanced and a significant fraction of the instructions take less than the maximum number of clock cycles
