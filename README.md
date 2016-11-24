@@ -5,4 +5,5 @@ Square root - Design a square rooting machine findSqrt which takes an unsigned n
 
 Radix 4 Booth - Construction of an 8-bit radix-4 Booth's multiplier.
 
-CPU design -    Construction of basic CPU. 
+CPU design -    Construction of 16 bit Multi-Cycle CPU which execute Mips instruction. It supports various addressing modes                   such as immediate, register, base and indirect. Extended Multi-Cycle CPU to Single Cycle CPU. 
+  
